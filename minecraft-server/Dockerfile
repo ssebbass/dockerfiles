@@ -1,3 +1,6 @@
+# My First DockerFile
+# Just trying to get a minecraft server running to play with my son
+
 FROM java:jre
 
 MAINTAINER sSeBBaSs
