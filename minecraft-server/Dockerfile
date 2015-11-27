@@ -2,22 +2,19 @@ FROM java:jre
 
 MAINTAINER sSeBBaSs
 
-RUN wget -O /usr/bin/jsawk https://github.com/micha/jsawk/raw/master/jsawk
-RUN chmod +x /usr/bin/jsawk
 RUN useradd -M -s /bin/false --uid 1000 minecraft \
   && mkdir /data \
   && chown minecraft:minecraft /data
 
 EXPOSE 25565
 
-COPY start.sh /start
-COPY start-minecraft.sh /start-minecraft
+COPY minecraft.sh /minecraft.sh
 
-VOLUME ["/data"]
+VOLUME ["/srv"]
 COPY server.properties /tmp/server.properties
-WORKDIR /data
+WORKDIR /srv
 
-CMD [ "/start" ]
+CMD [ "/minecraft.sh" ]
 
 # Special marker ENV used by MCCY management tool
 ENV MC_IMAGE=YES
