@@ -2,10 +2,6 @@ FROM ubuntu:trusty
 
 MAINTAINER Sebastian Juarez <ssebbass@gmail.com>
 
-# Some envs
-# ENV DEBIAN_FRONTEND noninteractive
-# ENV HOME /root
-
 # Service Ports
 EXPOSE 43110
 EXPOSE 15441
@@ -29,7 +25,9 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Get ZeroNet repo
-RUN git clone https://github.com/HelloZeroNet/ZeroNet.git && mkdir /ZeroNet/data
+RUN \
+  git clone https://github.com/HelloZeroNet/ZeroNet.git &&\
+  mkdir /ZeroNet/data
 
 # Set workdir
 WORKDIR /ZeroNet
