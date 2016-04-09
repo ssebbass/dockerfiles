@@ -48,5 +48,6 @@ VOLUME ["/ZeroNet/data"]
 # Run Commands
 CMD \
   tor 2>&1 &\
+  git pull ;\
   python zeronet.py --ui_ip 0.0.0.0
 
