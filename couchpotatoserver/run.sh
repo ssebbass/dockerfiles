@@ -1,7 +1,7 @@
 #!/bin/sh
-set -ex
+set -x
 
 cd /opt/CouchPotatoServer
 git pull
-exec su - couchpotato -c "cd /opt/CouchPotatoServer && python CouchPotato.py"
+exec python CouchPotato.py
 
