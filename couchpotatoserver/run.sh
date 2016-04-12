@@ -3,5 +3,5 @@ set -x
 
 cd /opt/CouchPotatoServer
 git pull
-exec python CouchPotato.py
+exec su - couchpotato -c "python CouchPotato.py"
 
