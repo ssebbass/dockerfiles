@@ -11,12 +11,12 @@ RUN apk update && \
 RUN mkdir -m 755 /opt && \
   cd /opt && \
   git clone https://github.com/RuudBurger/CouchPotatoServer.git &&\
+  mkdir /opt/CouchPotatoServer/.couchpotato &&\
   adduser -h /opt/CouchPotatoServer -g "CouchPotato Server" -s /bin/sh -D -u 1000 couchpotato couchpotato &&\
-  mkdir -m 700 /opt/CouchPotatoServer/.couchpotato &&\
   chown -R couchpotato:couchpotato /opt/CouchPotatoServer
 
-# VOLUME /opt/CouchPotatoServer/.couchpotato
 EXPOSE 5050
+VOLUME /opt/CouchPotatoServer/.couchpotato
 WORKDIR /opt/CouchPotatoServer
 ADD run.sh /
 CMD /run.sh
