@@ -47,6 +47,7 @@ RUN adduser -h /opt/CouchPotatoServer -s /bin/sh -D -u 1000 couchpotato couchpot
 EXPOSE 5050
 VOLUME /opt/CouchPotatoServer
 WORKDIR /opt/CouchPotatoServer
+USER couchpotato
 ADD run.sh /
 CMD /run.sh
 
