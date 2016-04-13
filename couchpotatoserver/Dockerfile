@@ -2,9 +2,21 @@ FROM multiarch/alpine:x86-latest-stable
 MAINTAINER sSeBBaSs <https://github.com/ssebbass>
 
 RUN apk update && \
-    apk upgrade &&\
-    apk add --update git python py-lxml py-openssl && \
-    rm -rf /var/cache/apk/*
+    apk add --update \
+    git \
+    python \
+    py-lxml \
+    py-openssl \
+    py-pip \
+    libffi-dev \
+    openssl-dev \
+    python-dev \
+    sqlite \
+    sqlite-dev \
+    build-base
+
+RUN pip install -U pip &&\
+    pip install -U pyopenssl
 
 # Create Service User & Install CouchPotato Server
 RUN mkdir /opt &&\
