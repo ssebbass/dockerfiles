@@ -35,7 +35,7 @@ RUN apk del \
   build-base &&\
   rm -rf /var/cache/apk/*
 
-# Create Service User & Install CouchPotato Server
+# Install CouchPotato Server
 RUN mkdir /opt &&\
     cd /opt &&\
     git clone https://github.com/RuudBurger/CouchPotatoServer.git
