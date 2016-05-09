@@ -12,6 +12,10 @@ RUN sed -i 's/main/main\ universe/g' /etc/apt/sources.list \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Set time zone to BA
+RUN echo 'America/Argentina/Buenos_Aires' > /etc/timezone && \
+  dpkg-reconfigure --frontend noninteractive tzdata
+
 RUN useradd -c sonarr -m -s /bin/bash sonarr
 USER sonarr
 RUN mkdir ~/data
