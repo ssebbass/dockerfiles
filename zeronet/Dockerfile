@@ -24,6 +24,10 @@ RUN \
   apt-get clean -y &&\
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Set time zone to BA
+RUN echo 'America/Argentina/Buenos_Aires' > /etc/timezone && \
+  dpkg-reconfigure --frontend noninteractive tzdata
+
 # Get ZeroNet repo
 RUN \
   git clone https://github.com/HelloZeroNet/ZeroNet.git &&\
