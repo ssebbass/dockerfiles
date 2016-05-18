@@ -16,6 +16,7 @@ RUN mkdir /var/subsonic \
   && useradd -c subsonic -m -s /bin/bash subsonic \
   && mkdir $HOME/music $HOME/subsonic $HOME/playlists $HOME/podcast
 
+# Service
 USER subsonic
 EXPOSE 4040
 WORKDIR /var/subsonic
