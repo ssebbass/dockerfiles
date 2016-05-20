@@ -7,7 +7,7 @@ EXPOSE 43110
 EXPOSE 15441
 
 # Install some basic OS pkgs and tor repos
-RUN \
+RUN set -x &&\
   echo 'deb http://deb.torproject.org/torproject.org trusty main' >> /etc/apt/sources.list.d/tor.list &&\
   echo 'deb-src http://deb.torproject.org/torproject.org trusty main' >> /etc/apt/sources.list.d/tor.list &&\
   gpg --keyserver keys.gnupg.net --recv 886DDD89 &&\
