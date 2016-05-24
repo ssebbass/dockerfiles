@@ -1,4 +1,4 @@
-FROM multiarch/ubuntu-debootstrap:i386-trusty
+FROM ssebbass/ubuntu32:trusty
 MAINTAINER sSeBBaSs <https://github.com/ssebbass>
 
 # Install some basic packages
