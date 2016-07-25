@@ -5,7 +5,7 @@ REPO="ssebbass"
 function build {
     if [ "$(grep "$REPO/ubuntu32" $1/Dockerfile >/dev/null 2>&1 ; echo $?)" = "0" ]; then
       set -x
-      docker build -t $REPO/$1 ./$1
+      docker build --no-cache --pull -t $REPO/$1 ./$1
       docker push $REPO/$1
       set +x
     else
