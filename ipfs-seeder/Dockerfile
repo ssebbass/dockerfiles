@@ -13,7 +13,8 @@ RUN set -xe \
   && VERSION="$(curl -s "https://dist.ipfs.io/go-ipfs/versions" | tail -1)" \
   && curl -O "https://dist.ipfs.io/go-ipfs/${VERSION}/go-ipfs_${VERSION}_linux-amd64.tar.gz" \
   && tar xvzf go-ipfs_${VERSION}_linux-amd64.tar.gz \
-  && cd go-ipfs && ./install.sh
+  && cd go-ipfs && ./install.sh \
+  && rm -Rf go-ipfs*
 
 RUN useradd -c ipfs -m -s /bin/bash ipfs
 USER ipfs
