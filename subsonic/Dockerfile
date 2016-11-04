@@ -1,4 +1,4 @@
-FROM ssebbass/ubuntu32:trusty
+FROM ubuntu:trusty
 MAINTAINER sSeBBaSs <https://github.com/ssebbass>
 
 # Install some basic packages

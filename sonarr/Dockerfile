@@ -1,4 +1,4 @@
-FROM ssebbass/ubuntu32:trusty
+FROM ubuntu:trusty
 MAINTAINER sSeBBaSs <https://github.com/ssebbass>
 
 # Install some basic packages
@@ -7,7 +7,6 @@ RUN sed -i 's/main/main\ universe/g' /etc/apt/sources.list \
   && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC \
   && echo "deb http://apt.sonarr.tv/ master main" >> /etc/apt/sources.list \
   && apt-get update -q \
-  && apt-get upgrade -qy \
   && apt-get install -qy nzbdrone mediainfo \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
