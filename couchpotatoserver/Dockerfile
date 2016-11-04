@@ -1,19 +1,31 @@
-FROM ssebbass/ubuntu32:trusty
+FROM ubuntu:trusty
 MAINTAINER sSeBBaSs <https://github.com/ssebbass>
 
 # Install some basic packages
-RUN set -xe ;\
-  apt-get update -qy ;\
-  apt-get upgrade -qy ;\
-  apt-get install -qy\
+RUN set -xe \
+  && apt-get update -qy \
+  && apt-get install -qy \
+    build-essential \
+    ca-certificates \
     git \
-    python-openssl \
-    python-lxml \
-    sqlite \
+    libffi-dev \
+    libssl-dev \
     python-cheetah \
-    ca-certificates ;\
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    
+    python-dev \
+    python-lxml \
+    python-openssl \
+    python-pip \
+    sqlite \
+  && pip install pyopenssl --upgrade \
+  && apt-get purge -qy \
+    python-dev \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+  && apt-get autoremove -qy \
+  && apt-get clean all \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Install CouchPotato Server
 RUN set -xe ;\
     cd /opt ;\
