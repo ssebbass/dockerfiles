@@ -38,4 +38,4 @@ RUN useradd -c transmission -m -s /bin/bash transmission
 USER transmission
 WORKDIR /home/transmission
 EXPOSE 9091
-CMD /usr/bin/transmission-daemon -f
+CMD /usr/bin/transmission-daemon -f --log-error --log-info --no-utp --no-lpd --encryption-preferred --no-dht
