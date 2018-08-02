@@ -1,9 +1,9 @@
 #!/bin/sh
-set -xe
+set -x
 
 if [ ! -z "${URL}" ]; then
   while true; do
-    curl "${URL}"
+    curl "${URL}" >/dev/null
     sleep "${SLEEP}"
   done
 else
