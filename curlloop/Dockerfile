@@ -1,11 +1,9 @@
 FROM alpine
 
-ENV SLEEP="0.5"
-
 RUN set -xe \
-  && apk update \
-  && apk add curl
+  && apk -U --no-cache add curl bash
 
-ADD curlloop.sh /
-CMD /curlloop.sh
+VOLUME /curlloop
 
+COPY curlloop.sh /curlloop/
+CMD ["/curlloop/curlloop.sh"]
